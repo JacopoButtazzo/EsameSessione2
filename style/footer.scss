@@ -1,0 +1,149 @@
+@import "var";
+
+footer {
+    position: relative;
+    box-shadow: 0px -5px 50px 10px $DarkMainColor;
+    border-top: 1px solid $DarkMainColor;
+    padding: 80px 50px 40px;
+    margin-top: 9%;
+}
+
+footer .cols {
+    display: flex;
+    align-items: start;
+}
+
+footer .cols .about-col {
+    flex: 3;
+}
+
+footer .cols .about-col h3 {
+    color: $DarkMainColor;
+    margin-bottom: 20px;
+}
+
+footer .cols .about-col p {
+    @if $theme==dark {
+
+        color: $DarkSecondaryText;
+    }
+    @else {
+        color: $LightSecondaryText;
+    }
+    font-size: 16px;
+}
+
+footer .cols .links-col {
+    flex: 3;
+}
+
+footer .cols .links-col h4 {
+    @if $theme==dark {
+
+        color: $DarkMainText;
+    }
+    @else {
+        color: $LightMainText;
+    }
+    margin-bottom: 20px;
+}
+
+footer .cols .links-col a {
+    display: block;
+    text-decoration: none;
+    @if $theme==dark {
+
+        color: $DarkSecondaryText;
+    }
+    @else {
+        color: $LightSecondaryText;
+    }
+    font-size: 16px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+}
+
+footer .cols .links-col a:hover {
+    @if $theme==dark {
+
+        color: $DarkSecondaryText;
+    }
+    @else {
+        color: $LightSecondaryText;
+    }
+}
+
+.button {
+    display: flex;
+}
+
+p.cr {
+    margin-top: 3%;
+    font-size: 0.5rem !important;
+}
+
+p.vat {
+    margin-top: 3%;
+    font-size: 0.6rem !important;
+}
+
+@media screen and (max-width: 1440px) {
+    footer {
+        position: relative;
+        margin: 0;
+        margin-top: 150px;
+
+    }
+
+    footer .cols {
+        flex-wrap: wrap;
+    }
+
+
+    .info p {
+        width: 450px;
+    }
+
+    .info q {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    footer * {
+        padding-top: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+
+    footer .cols .about-col {
+        flex-basis: 100%;
+        margin-bottom: 40px;
+    }
+
+    footer .cols .links-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column nowrap;
+        flex-basis: 100%;
+        margin-bottom: 20px;
+        gap: 1em;
+    }
+
+    .links-col h4 {
+        margin: 0;
+    }
+
+    .cols {
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    div.skills {
+        padding: 1%;
+    }
+}

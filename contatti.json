@@ -1,0 +1,48 @@
+{
+    "address": {
+        "label": "Sede lavorativa:",
+        "location": "Strada di Colle Pedeschiavo 68, Palombara Sabina (RM), 00018 Italia",
+        "maps_link": "https://www.google.it/maps/place/Str.+di+Colle+Pedeschiavo,+68,+00018+Palombara+Sabina+RM/@42.0666498,12.7180289,17z/data=!3m1!4b1!4m6!3m5!1s0x132f76b1e749ecf7:0x2e3e0c87c5784cf7!8m2!3d42.0666458!4d12.7206092!16s%2Fg%2F11gfm2sshh?entry=ttu"
+    },
+    "contacts": {
+        "label": "Contatti:",
+        "email": "jacork29@gmail.com",
+        "email_subject": "Richiesta Informazioni",
+        "email_body": "Ciao, vorrei collaborare con te..",
+        "phone": "+39 3278811350"
+    },
+    "social": {
+        "label": "Social:",
+        "links": [
+            {
+                "name": "Facebook",
+                "url": "#"
+            },
+            {
+                "name": "Instagram",
+                "url": "#"
+            },
+            {
+                "name": "Twitter",
+                "url": "#"
+            },
+            {
+                "name": "Github",
+                "url": "https://github.com/JacopoButtazzo"
+            }
+        ]
+    },
+    "policy": {
+        "label": "Policy:",
+        "links": [
+            {
+                "name": "Coockies policy",
+                "url": "coockies_policy.php"
+            },
+            {
+                "name": "Privacy policy",
+                "url": "privacy_policy.php"
+            }
+        ]
+    }
+}

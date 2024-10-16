@@ -1,0 +1,59 @@
+@import "var";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $ff;
+    /* font-size: 20px; */
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.btn a {
+    text-decoration: none;
+    color: $buttonText;
+}
+
+body {
+    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    --sb-track-color: #6e00be;
+    --sb-thumb-color: #fff;
+    --sb-size: 12px;
+
+    @if $theme==dark {
+        background: $DarkBg;
+        color: $DarkMainText;
+    }
+
+    @else {
+        background: $LightBg;
+        color: $LightMainText;
+    }
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 5px;
+    border: 1px solid $LightMainText;
+}
+
+h3,
+h4 {
+    filter: drop-shadow(0px 0px 4px $DarkMainColor);
+}

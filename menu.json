@@ -1,0 +1,25 @@
+{
+    "logo": "./img/my_logo/logo_bianco.png",
+    "items": [
+        {
+            "href": "./index.php",
+            "title": "Home",
+            "label": "HOME"
+        },
+        {
+            "href": "./progetti.php",
+            "title": "Projects",
+            "label": "PROJECTS"
+        },
+        {
+            "href": "./contatti.php",
+            "title": "Contact",
+            "label": "CONTACT"
+        }
+    ],
+    "hire_me": {
+        "href": "./hire_me.php",
+        "title": "Let's collaborate!",
+        "label": "HIRE ME"
+    }
+}

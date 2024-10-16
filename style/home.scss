@@ -1,0 +1,397 @@
+@import "var";
+
+.heading {
+    margin-top: 5%;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading span {
+    font-size: 2rem;
+}
+
+.heading h4 {
+    font-size: 32px;
+    @if $theme==dark {
+
+        color: $DarkMainText;
+    }
+    @else {
+        color: $LightMainText;
+    }
+    font-weight: 600;
+}
+
+@keyframes rainbow {
+    @if $theme==dark {
+
+        0% {
+            color: rgb(70, 0, 255);
+        }
+    
+        10% {
+            color: rgb(90, 0, 255);
+        }
+    
+        20% {
+            color: rgb(110, 0, 255);
+        }
+    
+        30% {
+            color: rgb(130, 0, 255);
+        }
+    
+        40% {
+            color: rgb(150, 0, 255);
+        }
+    
+        50% {
+            color: rgb(170, 0, 255);
+        }
+    
+        60% {
+            color: rgb(150, 0, 255);
+        }
+    
+        70% {
+            color: rgb(130, 0, 255);
+        }
+    
+        80% {
+            color: rgb(110, 0, 255);
+        }
+    
+        90% {
+            color: rgb(90, 0, 255);
+        }
+    
+        100% {
+            color: rgb(70, 0, 255);
+        }
+    }
+    @else {
+        0% {
+            color: rgb(49, 0, 71);
+        }
+    
+        10% {
+            color: rgb(48, 0, 82);
+        }
+    
+        20% {
+            color: rgb(45, 0, 97);
+        }
+    
+        30% {
+            color: rgb(39, 0, 112);
+        }
+    
+        40% {
+            color: rgb(16, 9, 93);
+        }
+    
+        50% {
+            color: rgb(0, 10, 71);
+        }
+    
+        60% {
+            color: rgb(16, 9, 93);
+        }
+    
+        70% {
+            color: rgb(39, 0, 112);
+        }
+    
+        80% {
+            color: rgb(45, 0, 97);
+        }
+    
+        90% {
+            color: rgb(48, 0, 82);
+        }
+    
+        100% {
+            color: rgb(49, 0, 71);
+        }
+    }
+    
+}
+
+
+.heading h4 span {
+    color: $DarkMainColor;
+    animation: rainbow 3s infinite;
+    /*text-decoration: underline;*/
+    filter: drop-shadow(0px 0px 4px $DarkMainColor);
+}
+
+.heading p.title {
+    font-size: 44px;
+    font-weight: 600;
+    @if $theme==dark {
+
+        color: $DarkMainText;
+    }
+    @else {
+        color: $LightMainText;
+    }
+    margin-top: 8px;
+}
+
+.heading p.subtitle {
+    font-size: 16px;
+    @if $theme==dark {
+
+        color: $DarkSubtitle;
+    }
+    @else {
+        color: $LightSubtitle;
+    }
+    margin-top: 3%;
+}
+
+.heading img {
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+    filter: drop-shadow(0px 0px 4px $DarkMainColor);
+}
+
+main {
+    margin: 0 100px;
+}
+
+.separator {
+    margin: 50px 50px 30px;
+    padding: 10px 20px;
+    background-color: $DarkMainColor;
+    display: inline-block;
+    @if $theme==dark {
+
+        color: $DarkMainText;
+    }
+    @else {
+        color: $LightMainText;
+    }
+    border-radius: 12px;
+    filter: drop-shadow(0px 0px 4px $DarkMainColor);
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    padding: 0 200px;
+}
+
+.about img {
+    width: 280px;
+    filter: drop-shadow(0px 0px 4px $DarkMainColor);
+}
+
+.about .info h3 {
+    @if $theme==dark {
+
+        color: $DarkMainText;
+    }
+    @else {
+        color: $LightMainText;
+    }
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+q {
+    margin-top: 2%;
+    font-size: 0.8rem;
+    font-style: italic;
+    @if $theme==dark {
+
+        color: $DarkMainText;
+    }
+    @else {
+        color: $LightMainText;
+    }
+}
+
+.about .info div.headingbutton {
+    margin-top: 8%;
+}
+
+.skills {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 200px;
+}
+
+/*media query*/
+
+
+@media screen and (max-width: 1440px) {
+
+    .skills {
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    .info p {
+        width: 450px;
+    }
+
+    .info q {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .heading h4 {
+        font-size: 24px;
+    }
+
+    .heading p.title {
+        font-size: 36px;
+    }
+
+    .heading p.subtitle {
+        font-size: 14px;
+    }
+
+    .about {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .info p {
+        width: 400px;
+    }
+
+    .info q {
+        font-size: 0.7rem;
+    }
+
+    .info button.btn {
+        margin-top: 2.2rem;
+        margin-bottom: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .heading {
+        margin-top: 50px;
+        /* margin-left: 15%; */
+        height: 320px;
+        justify-content: start;
+    }
+
+    main {
+        margin-left: 65px;
+    }
+
+    .about {
+        margin-left: 0;
+        display: flex;
+        flex-flow: column wrap;
+        align-content: center;
+        justify-content: space-between;
+    }
+
+    .heading h4 {
+        font-size: 1.15rem;
+    }
+
+    .heading p.title {
+        font-size: 1.15rem;
+    }
+
+    .heading p.subtitle {
+        font-size: 1.15rem;
+    }
+
+    .heading img {
+        margin-top: 40px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-flow: column wrap;
+    }
+
+    .info p {
+        margin-bottom: 10%;
+    }
+
+    .info a {
+        margin-top: 100px;
+    }
+
+    .skills {
+        width: 300px;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    main {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .about * {
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info,
+    .skill-list {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    * {
+        font-size: 1.1rem;
+    }
+
+    .conteinermain {
+        margin: 0 5%;
+    }
+
+    .heading {
+        margin-bottom: 50px;
+    }
+
+    .about {
+        margin: 0;
+        padding: 100px;
+    }
+
+    .info p {
+        width: 300px;
+    }
+
+    .skills {
+        padding-left: 170px;
+        margin-left: 5%;
+    }
+}
+@media screen and (max-width: 320px) {
+    .skills {
+        margin-left: 6%;
+    }
+}

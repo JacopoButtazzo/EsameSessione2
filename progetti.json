@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "PROJECT 1",
+        "subtitle": "Full website creation",
+        "image": "img/projct_pic.jpg",
+        "overlay_text": "CLICK HERE TO OPEN",
+        "link": "./singolo_progetto.php?id=1",
+        "summary": "On demand of Mario Rossi, I have created one of the most captivating sites in history from scratch!",
+        "video": "./videos/video_demo.mp4",
+        "header": "The perfect website!",
+        "description": "I'm still thankful to Mario Rossi for having created with me one of the most captivating sites in history. The project lasted 3 months: hard work, a lot of UX-surveys, and a large amount of stylistic attempts brought us to the perfect web-site. Rate it by yourself!"
+    },
+    {
+        "id": 2,
+        "title": "PROJECT 2",
+        "subtitle": "Updating/Upgrading SEO",
+        "image": "img/beatrice.jpg",
+        "overlay_text": "CLICK HERE TO OPEN",
+        "link": "./singolo_progetto.php?id=2",
+        "summary": "Beatrice now has more customers thanks to her new SEO strategy.",
+        "video": "./videos/video_demo.mp4",
+        "header": "SEO that drives results!",
+        "description": "Finally Beatrice has more customers thanks to her BRAND NEW POWERED SEO! We optimized keywords, structure, and technical SEO, resulting in a significant traffic increase."
+    },
+    {
+        "id": 3,
+        "title": "PROJECT 3",
+        "subtitle": "UX/UI design",
+        "image": "img/Lily.png",
+        "overlay_text": "CLICK HERE TO OPEN",
+        "link": "./singolo_progetto.php?id=3",
+        "summary": "Collaboration with Lily Cameron: best intuitive, suitable and prettiest UX/UI project of 2023!",
+        "video": "./videos/video_demo.mp4",
+        "header": "From a perfect UX to an amazing UI!",
+        "description": "Description of the collaboration with Lily Cameron: best intuitive, suitable and prettiest UX/UI project of 2023!"
+    }
+]

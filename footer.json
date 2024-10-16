@@ -1,0 +1,52 @@
+{
+    "about": {
+        "name": "Jacopo Buttazzo",
+        "description": "Creative FullStack Web Developer",
+        "vat": "VAT: 12345678901",
+        "copyright": "&copy; 2024 Jacopo Buttazzo. All rights reserved."
+    },
+    "useful_links": [
+        {
+            "href": "./index.php",
+            "title": "Home",
+            "label": "Home"
+        },
+        {
+            "href": "./progetti.php",
+            "title": "Projects",
+            "label": "Projects"
+        },
+        {
+            "href": "./contatti.php",
+            "title": "Contact",
+            "label": "Contact"
+        }
+    ],
+    "social_links": [
+        {
+            "href": "#",
+            "title": "MyInstagram",
+            "label": "Instagram"
+        },
+        {
+            "href": "https://www.linkedin.com/in/jacopo-buttazzo-ab2aa8b0/",
+            "title": "MyLinkedin",
+            "label": "Linkedin"
+        },
+        {
+            "href": "#",
+            "title": "MyYoutube",
+            "label": "Youtube"
+        },
+        {
+            "href": "https://github.com/JacopoButtazzo",
+            "title": "MyGithub",
+            "label": "Github"
+        }
+    ],
+    "hire_me": {
+        "href": "./hire_me.php",
+        "title": "Let's collaborate!",
+        "label": "HIRE ME"
+    }
+}
