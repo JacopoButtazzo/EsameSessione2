@@ -187,6 +187,16 @@ div.buttons {
     transform: translate(1px, 1px);
 }
 
+.error-field {
+    border: 1px solid red;
+    background-color: #ffe6e6;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
 
 @media screen and (max-width: 1024px) {
     .conteiner {

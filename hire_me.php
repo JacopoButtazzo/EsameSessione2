@@ -1,5 +1,6 @@
-<?php 
+<?php
 require_once 'utility.php';
+
 use MyProject\Utilities\utility;
 
 // Percorso del file CSV
@@ -10,7 +11,8 @@ $errors = [];
 $success_message = "";
 
 // Funzione di validazione lato server
-function validateInput($data) {
+function validateInput($data)
+{
     $errors = [];
 
     // Validazione nome (campo obbligatorio e minimo 2 caratteri)
@@ -60,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         utility::saveToCSV($csv_file, $data);
         $success_message = "La tua richiesta è stata inviata con successo!";
-        
+
         // Resetta i valori del form in caso di successo
         $data = [];
     }
@@ -68,7 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,17 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p class="success"><?php echo $success_message; ?></p>
             <?php endif; ?>
 
-            <!-- Visualizzazione errori -->
-            <?php if (!empty($errors)): ?>
-                <div class="error-messages">
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li><?php echo $error; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            <?php endif; ?>
-
             <div class="form">
                 <form action="#" method="post">
                     <div class="row main-row">
@@ -112,30 +104,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <fieldset>
                                 <legend>Your infos</legend>
                                 <label for="name">Name:<span>*</span></label>
-                                <input type="text" id="name" name="name" placeholder="Text here your name.." required="required" value="<?php echo isset($data['name']) ? htmlspecialchars($data['name'], ENT_QUOTES) : ''; ?>">
+                                <input type="text" id="name" name="name" placeholder="Text here your name.."
+                                    class="<?php echo isset($errors['name']) ? 'error-field' : ''; ?>"
+                                    value="<?php echo isset($data['name']) ? htmlspecialchars($data['name'], ENT_QUOTES) : ''; ?>">
+                                <?php if (isset($errors['name'])): ?>
+                                    <p class="error-text"><?php echo $errors['name']; ?></p>
+                                <?php endif; ?>
+
                                 <label for="surname">Surname:<span>*</span></label>
-                                <input type="text" id="surname" name="surname" placeholder="Text here your surname.." required="required" value="<?php echo isset($data['surname']) ? htmlspecialchars($data['surname'], ENT_QUOTES) : ''; ?>">
+                                <input type="text" id="surname" name="surname" placeholder="Text here your surname.."
+                                    class="<?php echo isset($errors['surname']) ? 'error-field' : ''; ?>"
+                                    value="<?php echo isset($data['surname']) ? htmlspecialchars($data['surname'], ENT_QUOTES) : ''; ?>">
+                                <?php if (isset($errors['surname'])): ?>
+                                    <p class="error-text"><?php echo $errors['surname']; ?></p>
+                                <?php endif; ?>
+
                                 <label for="birthday">Day of birth:</label>
                                 <input type="date" id="birthday" name="birthday" value="<?php echo isset($data['birthday']) ? htmlspecialchars($data['birthday'], ENT_QUOTES) : ''; ?>">
                             </fieldset>
                         </div>
                         <div class="col col2">
-                            <div class="row">
-                                <fieldset>
-                                    <legend>Contact</legend>
-                                    <label for="residence">Residence:</label>
-                                    <input type="text" id="residence" name="residence" placeholder="Text here your address.." maxlength="50" size="55" value="<?php echo isset($data['residence']) ? htmlspecialchars($data['residence'], ENT_QUOTES) : ''; ?>">
-                                    <label for="email">E-mail:<span>*</span></label>
-                                    <input type="email" id="email" name="email" required="required" placeholder="Text here your e-mail.." value="<?php echo isset($data['email']) ? htmlspecialchars($data['email'], ENT_QUOTES) : ''; ?>">
-                                </fieldset>
-                            </div>
-                            <div class="row">
-                                <fieldset>
-                                    <legend>More</legend>
-                                    <label for="text">Summarize your proposal here<span>*</span></label>
-                                    <textarea name="text" id="text" placeholder="Be as brief as possible :)" required="required"><?php echo isset($data['text']) ? htmlspecialchars($data['text'], ENT_QUOTES) : ''; ?></textarea>
-                                </fieldset>
-                            </div>
+                            <fieldset>
+                                <legend>Contact</legend>
+                                <label for="residence">Residence:</label>
+                                <input type="text" id="residence" name="residence" placeholder="Text here your address.."
+                                    class="<?php echo isset($errors['residence']) ? 'error-field' : ''; ?>"
+                                    maxlength="50" value="<?php echo isset($data['residence']) ? htmlspecialchars($data['residence'], ENT_QUOTES) : ''; ?>">
+                                <?php if (isset($errors['residence'])): ?>
+                                    <p class="error-text"><?php echo $errors['residence']; ?></p>
+                                <?php endif; ?>
+
+                                <label for="email">E-mail:<span>*</span></label>
+                                <input type="email" id="email" name="email" placeholder="Text here your e-mail.."
+                                    class="<?php echo isset($errors['email']) ? 'error-field' : ''; ?>"
+                                    value="<?php echo isset($data['email']) ? htmlspecialchars($data['email'], ENT_QUOTES) : ''; ?>">
+                                <?php if (isset($errors['email'])): ?>
+                                    <p class="error-text"><?php echo $errors['email']; ?></p>
+                                <?php endif; ?>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>More</legend>
+                                <label for="text">Summarize your proposal here<span>*</span></label>
+                                <textarea name="text" id="text" placeholder="Be as brief as possible :)"
+                                    class="<?php echo isset($errors['text']) ? 'error-field' : ''; ?>"><?php echo isset($data['text']) ? htmlspecialchars($data['text'], ENT_QUOTES) : ''; ?></textarea>
+                                <?php if (isset($errors['text'])): ?>
+                                    <p class="error-text"><?php echo $errors['text']; ?></p>
+                                <?php endif; ?>
+                            </fieldset>
                         </div>
                     </div>
                     <div class="buttons">
@@ -149,4 +165,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Include footer -->
     <?php utility::includeFooter(); ?>
 </body>
+
 </html>
