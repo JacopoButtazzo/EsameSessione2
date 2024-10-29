@@ -27,12 +27,24 @@
         "id": 3,
         "title": "PROJECT 3",
         "subtitle": "UX/UI design",
-        "image": "img/Lily.png",
+        "image": "img/lily.png",
         "overlay_text": "CLICK HERE TO OPEN",
         "link": "./singolo_progetto.php?id=3",
         "summary": "Collaboration with Lily Cameron: best intuitive, suitable and prettiest UX/UI project of 2023!",
         "video": "./videos/video_demo.mp4",
         "header": "From a perfect UX to an amazing UI!",
         "description": "Description of the collaboration with Lily Cameron: best intuitive, suitable and prettiest UX/UI project of 2023!"
+    },
+    {
+        "id": 4,
+        "title": "PROJECT 4",
+        "subtitle": "Front end maintenance",
+        "image": "img/seo_updates.png",
+        "overlay_text": "CLICK HERE TO OPEN",
+        "link": "./singolo_progetto.php?id=4",
+        "summary": "Gary is no longer afraid of losing potential customers due to his site's outdated design!",
+        "video": "./videos/video_demo.mp4",
+        "header": "Full website creation",
+        "description": "I'm still thanksful to Mario Rossi for having created with me one of the most captivating site in history of developers. The project lasted 3 months: hard work, a lot of UX-surveys, a large amount of stylistic attempts brought us to the perfect web-site. Rate it by yourself!"
     }
 ]
