@@ -1,9 +1,3 @@
-<?php
-include 'utility.php';
-// Include il menu
-include 'menu.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,10 +9,13 @@ include 'menu.php';
     <link rel="stylesheet" href="./css/header.min.css">
     <link rel="stylesheet" href="./css/footer.min.css">
     <link rel="stylesheet" href="./css/home.min.css">
-    
 </head>
 
 <body>
+    <?php
+    include 'utility.php';
+    include 'menu.php';
+    ?>
     <main>
         <div class="heading">
             <h4>Hi, I Am <span class="animate__animated animate__pulse">Jacopo Buttazzo</span> 👋</h4>
@@ -26,6 +23,7 @@ include 'menu.php';
             <p class="subtitle">I love Design And Code, come and find out!</p>
             <img src="./img/coding2.png" alt="coding-image">
         </div>
+
         <h5 class="separator">Who I Am</h5>
         <div class="about">
             <img src="./img/Me/me_color.png" alt="pic-of-me">
@@ -44,6 +42,7 @@ include 'menu.php';
                 </div>
             </div>
         </div>
+
         <h5 class="separator">My Skills</h5>
         <div class="skills">
             <div class="info">
@@ -75,10 +74,7 @@ include 'menu.php';
         </div>
     </main>
 
-    <?php
-    // Include il footer
-    include 'footer.php';
-    ?>
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>
