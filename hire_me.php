@@ -98,59 +98,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
 
             <div class="form">
-                <form action="#" method="post">
+                <form id="collaboration-form" action="#" method="post">
                     <div class="row main-row">
                         <div class="col col1">
                             <fieldset>
                                 <legend>Your infos</legend>
                                 <label for="name">Name:<span>*</span></label>
-                                <input type="text" id="name" name="name" placeholder="Text here your name.."
-                                    class="<?php echo isset($errors['name']) ? 'error-field' : ''; ?>"
-                                    value="<?php echo isset($data['name']) ? htmlspecialchars($data['name'], ENT_QUOTES) : ''; ?>">
-                                <?php if (isset($errors['name'])): ?>
-                                    <p class="error-text"><?php echo $errors['name']; ?></p>
-                                <?php endif; ?>
+                                <input type="text" id="name" name="name" placeholder="Text here your name.." required>
 
                                 <label for="surname">Surname:<span>*</span></label>
-                                <input type="text" id="surname" name="surname" placeholder="Text here your surname.."
-                                    class="<?php echo isset($errors['surname']) ? 'error-field' : ''; ?>"
-                                    value="<?php echo isset($data['surname']) ? htmlspecialchars($data['surname'], ENT_QUOTES) : ''; ?>">
-                                <?php if (isset($errors['surname'])): ?>
-                                    <p class="error-text"><?php echo $errors['surname']; ?></p>
-                                <?php endif; ?>
+                                <input type="text" id="surname" name="surname" placeholder="Text here your surname.." required>
 
                                 <label for="birthday">Day of birth:</label>
-                                <input type="date" id="birthday" name="birthday" value="<?php echo isset($data['birthday']) ? htmlspecialchars($data['birthday'], ENT_QUOTES) : ''; ?>">
+                                <input type="date" id="birthday" name="birthday">
                             </fieldset>
                         </div>
                         <div class="col col2">
                             <fieldset>
                                 <legend>Contact</legend>
                                 <label for="residence">Residence:</label>
-                                <input type="text" id="residence" name="residence" placeholder="Text here your address.."
-                                    class="<?php echo isset($errors['residence']) ? 'error-field' : ''; ?>"
-                                    maxlength="50" value="<?php echo isset($data['residence']) ? htmlspecialchars($data['residence'], ENT_QUOTES) : ''; ?>">
-                                <?php if (isset($errors['residence'])): ?>
-                                    <p class="error-text"><?php echo $errors['residence']; ?></p>
-                                <?php endif; ?>
+                                <input type="text" id="residence" name="residence" placeholder="Text here your address.." maxlength="50">
 
                                 <label for="email">E-mail:<span>*</span></label>
-                                <input type="email" id="email" name="email" placeholder="Text here your e-mail.."
-                                    class="<?php echo isset($errors['email']) ? 'error-field' : ''; ?>"
-                                    value="<?php echo isset($data['email']) ? htmlspecialchars($data['email'], ENT_QUOTES) : ''; ?>">
-                                <?php if (isset($errors['email'])): ?>
-                                    <p class="error-text"><?php echo $errors['email']; ?></p>
-                                <?php endif; ?>
+                                <input type="email" id="email" name="email" placeholder="Text here your e-mail.." required>
                             </fieldset>
 
                             <fieldset>
                                 <legend>More</legend>
                                 <label for="text">Summarize your proposal here<span>*</span></label>
-                                <textarea name="text" id="text" placeholder="Be as brief as possible :)"
-                                    class="<?php echo isset($errors['text']) ? 'error-field' : ''; ?>"><?php echo isset($data['text']) ? htmlspecialchars($data['text'], ENT_QUOTES) : ''; ?></textarea>
-                                <?php if (isset($errors['text'])): ?>
-                                    <p class="error-text"><?php echo $errors['text']; ?></p>
-                                <?php endif; ?>
+                                <textarea name="text" id="text" placeholder="Be as brief as possible :)" required></textarea>
                             </fieldset>
                         </div>
                     </div>
@@ -164,6 +140,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
     <!-- Include footer -->
     <?php utility::includeFooter(); ?>
+
+    <!-- Script JS per validazione lato client -->
+    <script>
+        document.getElementById("collaboration-form").addEventListener("submit", function(event) {
+            // Prevenire l'invio del form finché non è validato
+            let isValid = true;
+
+            // Elementi del form
+            const name = document.getElementById("name");
+            const surname = document.getElementById("surname");
+            const email = document.getElementById("email");
+            const residence = document.getElementById("residence");
+            const textArea = document.getElementById("text");
+
+            // Rimuovi messaggi di errore precedenti
+            document.querySelectorAll(".error-text").forEach(el => el.remove());
+
+            // Funzione di aggiunta messaggi di errore
+            function showError(input, message) {
+                const errorElement = document.createElement("p");
+                errorElement.className = "error-text";
+                errorElement.style.color = "red";
+                errorElement.textContent = message;
+                input.insertAdjacentElement("afterend", errorElement);
+                isValid = false;
+            }
+
+            // Validazione nome
+            if (name.value.trim().length < 2) {
+                showError(name, "Il nome deve contenere almeno 2 caratteri.");
+            }
+
+            // Validazione cognome
+            if (surname.value.trim().length < 2) {
+                showError(surname, "Il cognome deve contenere almeno 2 caratteri.");
+            }
+
+            // Validazione email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value.trim())) {
+                showError(email, "Inserisci un indirizzo email valido.");
+            }
+
+            // Validazione residenza (se inserita)
+            if (residence.value.trim().length > 50) {
+                showError(residence, "L'indirizzo di residenza non può superare i 50 caratteri.");
+            }
+
+            // Validazione testo della proposta
+            if (textArea.value.trim().length < 10) {
+                showError(textArea, "Il campo deve contenere almeno 10 caratteri.");
+            }
+
+            // Blocca invio se ci sono errori
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 
 </html>
